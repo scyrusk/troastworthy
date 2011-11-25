@@ -7,7 +7,7 @@ gem 'rails', '3.1.0'
 
 gem 'sqlite3'
 gem 'pg'
-gem 'hassle3'
+gem 'hassle', :git => 'git://github.com/koppen/hassle.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
