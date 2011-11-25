@@ -1,0 +1,33 @@
+<%= form_for(@troast) do |f| %>
+  <% if @troast.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@troast.errors.count, "error") %> prohibited this troast from being saved:</h2>
+
+      <ul>
+      <% @troast.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :toast %><br />
+    <%= f.check_box :toast %>
+  </div>
+  <div class="field">
+    <%= f.label :anonymous %><br />
+    <%= f.check_box :anonymous %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

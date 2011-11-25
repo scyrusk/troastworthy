@@ -1,0 +1,29 @@
+<h1>Listing troasts</h1>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th>Date</th>
+    <th>Toast</th>
+    <th>Anonymous</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @troasts.each do |troast| %>
+  <tr>
+    <td><%= troast.body %></td>
+    <td><%= troast.date %></td>
+    <td><%= troast.toast %></td>
+    <td><%= troast.anonymous %></td>
+    <td><%= link_to 'Show', troast %></td>
+    <td><%= link_to 'Edit', edit_troast_path(troast) %></td>
+    <td><%= link_to 'Destroy', troast, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Troast', new_troast_path %>

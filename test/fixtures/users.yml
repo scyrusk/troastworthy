@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  uid: MyString
+  name: MyString
+  year: 1
+  email: MyString
+
+two:
+  uid: MyString
+  name: MyString
+  year: 1
+  email: MyString

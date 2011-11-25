@@ -1,0 +1,2 @@
+module TroastsHelper
+end

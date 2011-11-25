@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  body: MyText
+  date: 2011-11-25 14:43:32
+  toast: false
+  anonymous: false
+
+two:
+  body: MyText
+  date: 2011-11-25 14:43:32
+  toast: false
+  anonymous: false

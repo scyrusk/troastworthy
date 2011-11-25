@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Body:</b>
+  <%= @troast.body %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @troast.date %>
+</p>
+
+<p>
+  <b>Toast:</b>
+  <%= @troast.toast %>
+</p>
+
+<p>
+  <b>Anonymous:</b>
+  <%= @troast.anonymous %>
+</p>
+
+
+<%= link_to 'Edit', edit_troast_path(@troast) %> |
+<%= link_to 'Back', troasts_path %>
