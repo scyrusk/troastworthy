@@ -1,0 +1,115 @@
+// Place all the styles related to the public controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$font-color:green;
+$background-color:black;
+$div_margin:10px;
+
+body {
+  background-color:$background-color;
+  margin:0 auto;
+  font-family:'Century Gothic';
+  color:green;
+}
+
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px; } 
+  margin-top:$div_margin;
+  margin-bottom:$div_margin;
+}
+
+
+//for the landing page
+$search-width: 800px;
+$search-height: 40px;
+$title-font-size: 72px;
+
+.troastworthy_title {
+  font-size:$title-font-size;
+  text-align:center;
+  color:$font-color;
+  margin-top:250px;
+  font-weight:bold;
+}
+
+div#search_div {
+  float:center;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-top: -1*($search-height/2);
+  margin-left: -1*($search-width/2);
+}
+
+input#search_field {
+  font-size:$search-height;
+  font-family:'Century Gothic';
+  text-align:center;
+  width:$search-width;
+  color:green;
+  background-color:gray;
+}
+
+div#flash-error {
+  color:red;
+  text-align:center;
+}
+
+//for the user selection page
+$content_width:600px;
+$user_div_width:150px;
+
+div#all_content {
+  width:$content_width;
+  position:absolute;
+  left:50%;
+  margin-left: -1*($content_width/2);
+  margin-top:50px;
+}
+
+.user_div {
+  width:$user_div_width;
+  text-align:center;
+  position:block;
+  float:left;
+  padding:5px 5px 5px 5px;
+}
+
+.user_select_form {
+  width:$user_div_width;
+}
+
+.heading {
+  height:50px;
+  margin-bottom:20px;
+}
+
+.user_name {
+  text-align:center;
+}
+
+div#logo {
+  float:left;
+  font-size:40px;
+  position:relative;
+  top:0px;
+  width:0.5*$content_width;
+  font-weight:bold;
+}
+
+div#logged_info {
+  float:right;
+  text-align:right;
+  font-size:10px;
+  font-style:italic;
+  position:relative;
+  top:0px;
+  width:0.4*$content_width;
+}
+
+.prompt {
+  font-style:italic;
+  margin:0 10px;
+}

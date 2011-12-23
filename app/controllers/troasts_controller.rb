@@ -1,7 +1,9 @@
 class TroastsController < ApplicationController
+  before_filter :authorize, :only => :dynamicCreate
   # GET /troasts
   # GET /troasts.json
   def index
+    @vis_js = 1
     @troasts = Troast.all
 
     respond_to do |format|
@@ -78,6 +80,38 @@ class TroastsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to troasts_url }
       format.json { head :ok }
+    end
+  end
+
+  def dynamicCreate
+    troast = Troast.new do |t|
+      t.body = params[:body]
+      t.image = params[:image] if params[:image]
+      t.date = DateTime.now
+      t.user = User.find_by_uid(session[:troaster])
+      t.toast = (params[:toast] == 'toast' ? true : false)
+      t.anonymous = (params[:anonymous] ? true : false)
+      t.save
+    end
+
+    user = User.find_by_pid(session[:troastee])
+    user.about_troasts << troast
+    user.save
+
+    flash[:notice] = 'Created new troast!'
+    @troasts = user.about_troasts.sort{|a,b| b.date <=>a.date}
+    if params[:image]
+      redirect_to :controller => 'troastee', :action => 'index'
+    else
+      render 'troastee/index.js.erb', :layout => false
+    end
+  end
+
+  protected
+  def authorize
+    unless session[:troaster] and session[:troastee]
+      flash[:notice] = 'Whoops, looks like we can\'t figure out who you are, please enter your access token again'
+      redirect_to root_url
     end
   end
 end

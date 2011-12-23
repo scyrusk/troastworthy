@@ -44,6 +44,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        @user.uid = Digest::SHA2.hexdigest(@user.name.split('').shuffle.inject{|cum,n| cum + n})
+        @user.pid = Digest::SHA2.hexdigest((@user.name + @user.year.to_s).split('').shuffle.inject{|cum,n| cum + n})
+        @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else

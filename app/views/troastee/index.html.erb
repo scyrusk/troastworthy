@@ -1,0 +1,53 @@
+<% if @user != nil %>
+  <div id="all_content">
+    <div class="heading">
+      <div id="TroastFile">
+        <%= @user.name %>'s Troast File
+      </div>
+      <div id="logged_info">
+        <span class="name"><%= 'Logged in as ' + @troaster.name %>.</span>
+        <span class="action"><%= link_to 'Logout', root_url %></span>
+      </div>
+    </div>
+
+    <div id="troastee_info">
+      <% if @user.photo.exists? %>
+        <div class="troastee_profile_image">
+          <%= link_to image_tag(@user.photo.url(:profile)), @user.photo.url %>
+        </div>
+      <% end %>
+      <div class="troastee_facts">
+        <p><span class='label'>Name:</span> <%= @user.name %></p>
+        <p><span class='label'>Year:</span> <%= @user.year %></p>
+      </div>
+    </div>
+
+    <div id="troast_div">
+      <div id="new_troast">
+        <%= form_tag('/troasts/dynamicCreate', {:id => 'new_troast_form', :multipart => true, :remote => true}) do %>
+          <div id="nt_text_area"><%= text_area_tag :body, params[:body], :id => 'body_field', :placeholder => 'Post a new troast comment...', :size => 48, :rows => "4", :cols => "48" %></div>
+          <div id="nt_radio_buttons">
+            <%= radio_button_tag :toast, value = "toast", checked=false %> Toast 
+            <%= radio_button_tag :toast, value = "roast", checked=true %> Roast
+          </div>
+          <div id="nt_image_upload">Upload an Image (optional): <%= file_field_tag :image, :id => 'image_upload' %></div>
+          <div id="nt_anonymous"><%= check_box_tag :anonymous, 'true', false %> Anonymous</div>
+          <div id="nt_submit"><%= button_tag 'Troast!' %></div>
+        <% end %> 
+      </div>
+      <% if flash[:notice] %>
+        <div id="flash-error">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <h2>Troasts:</h2>
+      <div id="troasts">
+        <%= render :partial => "troasts/troast", :collection => @troasts %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $('#flash-error').delay(5000).slideUp();
+</script>

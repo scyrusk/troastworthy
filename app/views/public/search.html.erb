@@ -1,0 +1,46 @@
+<% if @user != nil %>
+  <div id="all_content">
+    <div class="heading">
+      <div id="logo">
+        Troastworthy
+      </div>
+      <div id="logged_info">
+        <span class="name"><%= 'Logged in as ' + @user.name %></span>.
+        <span class="action"><%= link_to 'Logout', root_url %></span>
+      </div>
+    </div>
+    <br/>
+    <span class="prompt">Who do you want to troast?</span>
+    <div id="users">
+        <% @users.each do |u| %>
+            <div id="<%= "user_div_"+u.name.split[0] %>" class="user_div">
+              <%= form_tag('/troastee/index',:class => "user_select_form") do %>
+                <%= hidden_field_tag :ball, u.pid , :id => 'user_link_'+u.name %>
+                <% if u.photo.exists? %>
+                  <%= image_submit_tag u.photo.url(:gray), :class => 'submit_troastee_image', :id => 'submit_troastee_image_' + u.name.split[0] %>
+                <% else %>
+                  <%= submit_tag u.name, :class => 'submit_troastee' %>
+                <% end %>
+            <% end %>
+              <div class="user_name">
+                <span class="name_label" id="name_label_<%= u.name.split[0] %>"><%= u.name.split[0] %></span>
+              </div>
+            </div>
+        <% end %>
+      </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $('.submit_troastee_image').mouseover(function() {
+    $(this).attr('src',$(this).attr('src').replace('gray','profile'));
+    name_label_id = 'name_label_' + $(this).attr('id').split('_')[3];
+    $('#'+name_label_id).css('color','red');
+  });
+
+  $('.submit_troastee_image').mouseout(function() {
+    $(this).attr('src',$(this).attr('src').replace('profile','gray'));
+    name_label_id = 'name_label_' + $(this).attr('id').split('_')[3];
+    $('#'+name_label_id).css('color','green');
+  });
+</script>

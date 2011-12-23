@@ -21,5 +21,11 @@
 </p>
 
 
+<% if @troast.image.exists? %>
+  <div class="img">
+    <%= image_tag @troast.image.url(:thumb) %>
+  </div>
+<% end %>
+
 <%= link_to 'Edit', edit_troast_path(@troast) %> |
 <%= link_to 'Back', troasts_path %>

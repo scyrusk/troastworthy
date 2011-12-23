@@ -2,9 +2,17 @@
 <html>
 <head>
   <title>Troastworthy</title>
-  <% #stylesheet_link_tag    "application" %>
-  <% #javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <% if defined?(@stylesheets) %>
+    <% @stylesheets.each do |ss| %>
+      <%= stylesheet_link_tag ss %>
+    <% end %>
+  <% else %>
+    <%= stylesheet_link_tag    "application" %>
+  <% end %>
+  <% if defined?(@vis_js) %>
+    <%= javascript_include_tag "application", :cache => true %>
+    <%= csrf_meta_tags %>
+  <% end %>
 </head>
 <body>
 

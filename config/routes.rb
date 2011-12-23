@@ -1,8 +1,24 @@
 Troastworthy::Application.routes.draw do
+  get "troastee/index"
+  post "troastee/index"
+  get "troastee/deleteAT"
+  post "troastee/deleteAT"
+
+  get "troasts/dynamicCreate"
+  post "troasts/dynamicCreate"
+
+  get "public/index"
+  get "public/search"
+  post "public/search"
+  get "public/reqDecrypt"
+
   resources :troasts
 
   resources :users
 
+  root :to => 'public#index'
+  match "search" => "public#search"
+  match 'troastee', :to => 'troastee#index', :as => "troastee"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
