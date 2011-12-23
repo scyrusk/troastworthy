@@ -1,15 +1,18 @@
-<hr/>
-<div class="troast">
-  <% if troast.image.exists? %>
-    <div class="troast_image">
-      <%= link_to image_tag(troast.image.url(:thumb)), troast.image.url %>
-    </div>
-  <% end %>
-  <p class="<%= (troast.toast ? 'toast' : 'roast') %>"><%= troast.body %></p>
-  <p class="troast_info"><span class="lbl">Posted by:</span> <span class="author"><%= (troast.anonymous ? 'Anonymous' : (troast.user.name if troast.user)) %> at <span class="date"><%= troast.date.strftime("%Y/%m/%d") %></span></p>
-  <% if troast.user.uid == session[:troaster] %>
-    <div class="admin_actions">
-      <%= link_to("Remove",'/troastee/deleteAT?id='+troast.id.to_s,:remote=>true) %>
-    </div>
-  <% end %>
+<div class="<%= (troast.toast ? 'toast' : 'roast') %>_div">
+  <div class="troast_content">
+    <% if troast.image.exists? %>
+      <div class="troast_image">
+        <%= link_to image_tag(troast.image.url(:thumb)), troast.image.url %>
+      </div>
+    <% end %>
+    <div class="troast_text"><p class="<%= (troast.toast ? 'toast' : 'roast') %>"><%= troast.body %></p></div>
+  </div><br/>
+  <div class="troast_footer">
+    <div class="troast_meta_info"><span class="lbl">Posted by:</span> <span class="author"><%= (troast.anonymous ? 'Anonymous' : (troast.user.name if troast.user)) %> at <span class="date"><%= troast.date.strftime("%Y/%m/%d") %></span></div>
+    <% if troast.user.uid == session[:troaster] %>
+      <div class="admin_actions">
+        <%= link_to("Remove",'/troastee/deleteAT?id='+troast.id.to_s,:remote=>true) %>
+      </div>
+    <% end %>
+  </div>
 </div>

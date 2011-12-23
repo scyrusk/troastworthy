@@ -5,6 +5,7 @@ class TroasteeController < ApplicationController
 
   def index
     @vis_js = 1
+    @stylesheets = [ 'troastee' ]
 
     if params[:ball] != nil
       @user = User.find_by_pid(params[:ball])
@@ -27,7 +28,7 @@ class TroasteeController < ApplicationController
       @troastee.save
       @troast.destroy
 
-      @troasts = @troastee.about_troasts.sort{|a,b| b.date<=>a.data}
+      @troasts = @troastee.about_troasts.sort{|a,b| b.date<=>a.date}
 
       @from_delete = true
       render '/troastee/index.js.erb', :layout => false

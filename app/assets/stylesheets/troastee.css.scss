@@ -21,27 +21,17 @@ div {
 }
 
 //for the user selection page
-$content_width:600px;
-$user_div_width:150px;
+$content_width:800px;
+$roast_color:#F51B1B;
+$toast_color:#49F2F2;
 
 div#all_content {
   width:$content_width;
   position:absolute;
   left:50%;
   margin-left: -1*($content_width/2);
-  margin-top:50px;
-}
-
-.user_div {
-  width:$user_div_width;
-  text-align:center;
-  position:block;
-  float:left;
+  //background-color:#424242;
   padding:5px 5px 5px 5px;
-}
-
-.user_select_form {
-  width:$user_div_width;
 }
 
 .heading {
@@ -49,13 +39,9 @@ div#all_content {
   margin-bottom:20px;
 }
 
-.user_name {
-  text-align:center;
-}
-
-div#logo {
+div#TroastFile {
   float:left;
-  font-size:40px;
+  font-size:30px;
   position:relative;
   top:0px;
   width:0.5*$content_width;
@@ -72,7 +58,122 @@ div#logged_info {
   width:0.4*$content_width;
 }
 
-.prompt {
-  font-style:italic;
-  margin:0 10px;
+div#troastee_info {
+  height:150px;
 }
+
+div#troastee_profile_image {
+  float:left;
+  text-align:center;
+  width:150px;
+  padding:0 10px 0 10px;
+}
+
+div#troastee_facts {
+  padding-top:20px;
+  width:$content_width - 150px;
+}
+
+.label {
+  font-style:italic;
+}
+
+div#troast_div {
+  min-height:400px;
+  padding:5px 10px 0 10px;
+}
+
+div#new_troast {
+  width:800px;
+  min-height:100px;
+}
+
+div#nt_text_area {
+  width: 371px;
+  display:block;
+  float:left;
+}
+
+div#nt_radio_buttons {
+  padding-top:7px;
+  font-size:12px;
+}
+
+.radio, .checkbox {
+  width:12px;
+  height:12px;
+}
+
+input#image_upload {
+  background:url('/assets/attachment.png') no-repeat;
+  cursor:pointer;
+  border:none;
+}
+
+div#nt_anonymous {
+  font-size:12px;
+}
+
+button#nt_submit_button {
+  width:357px;
+}
+
+div#nt_submit {
+  margin-top:-30px;
+  padding-left:2px;
+  display:block;
+  float:left;
+}
+
+.toast_div {
+  border:1px $toast_color solid;
+  color:$toast_color;
+  padding:5px 5px 5px 5px;
+  margin-bottom:20px;
+  min-height:80px;
+}
+
+.roast_div {
+  border:1px $roast_color solid;
+  color:$roast_color;
+  padding:5px 5px 5px 5px;
+  margin-bottom:20px;
+  min-height:80px;
+}
+
+.troast_image {
+  display:block;
+  float:left;
+  width:80px;
+}
+
+.troast_text {
+  position:relative;
+  left:5px;
+  top:10px;
+  max-width:600px;
+  word-wrap:break-word;
+}
+
+.troast_footer {
+  position:relative;
+  min-height:20px;
+  font-size:10px;
+}
+
+.troast_meta_info {
+  width:50%;
+  display:block;
+  text-align:right;
+  float:right;
+}
+
+.admin_actions {
+  width:50%;
+  display:block;
+  float:left;
+}
+
+a:link { color:#13E82B; text-decoration:none }
+a:visited { color:#13E82B; text-decoration:none }
+a:hover { color:#255200; text-decoration:underline }
