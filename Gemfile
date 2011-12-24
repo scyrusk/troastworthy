@@ -35,3 +35,4 @@ end
 gem 'cocaine'
 gem 'execjs'
 gem 'therubyracer'
+gem 'aws-s3'
