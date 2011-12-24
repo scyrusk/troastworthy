@@ -1,3 +1,5 @@
+require 'aws-sdk'
+
 class User < ActiveRecord::Base
   has_many :troasts
   serialize :about_troasts, Array
