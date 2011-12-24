@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
       :thumb => "60x60",
       :profile => "130x130",
       :gray => "130x130" },
-    :convert_options => { :gray => '-colorspace Gray' }
+    :convert_options => { :gray => '-colorspace Gray' },
     :storage => :s3,
     :bucket => 'mybucket',
     :s3_credentials => {
