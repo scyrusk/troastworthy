@@ -95,7 +95,6 @@ class TroastsController < ApplicationController
     end
 
     user = User.find_by_pid(session[:troastee])
-    puts 'About Troasts type ' + user.about_troasts.class.to_s
     user.about_troasts << troast.id
     user.save
 
