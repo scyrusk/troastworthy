@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
       :gray => "130x130" },
     :convert_options => { :gray => '-colorspace Gray' },
     :storage => :s3,
-    :bucket => 'mybucket',
+    :bucket => 'mybucket1',
     :s3_credentials => {
       :access_key_id => ENV['S3_KEY'],
       :secret_access_key => ENV['S3_SECRET']
