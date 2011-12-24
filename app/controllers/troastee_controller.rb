@@ -16,10 +16,9 @@ class TroasteeController < ApplicationController
     #hack to work around rails YAML deserialization bug
     Troast.dummyMethod
     if @user.about_troasts.class == 'String'
-      puts 'YAML of Posts:' + @user.about_troasts
-      @troasts = YAML::load(@user.about_troasts).sort{|a,b| b.date <=>a.date} unless @user.about_troasts == nil or @user.about_troasts == '' 
+      @troasts = YAML::load(@user.about_troasts).map{|a| Troast.find_by_id(a)}.sort{|a,b| b.date <=>a.date} 
     else
-      @troasts = @user.about_troasts.sort{|a,b| b.date <=>a.date}
+      @troasts = @user.about_troasts.map{|a| Troast.find_by_id(a)}.sort{|a,b| b.date <=>a.date}
     end
   end
 

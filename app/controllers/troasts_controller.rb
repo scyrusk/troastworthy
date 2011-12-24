@@ -96,11 +96,11 @@ class TroastsController < ApplicationController
 
     user = User.find_by_pid(session[:troastee])
     puts 'About Troasts type ' + user.about_troasts.class.to_s
-    user.about_troasts << troast
+    user.about_troasts << troast.id
     user.save
 
     flash[:notice] = 'Created new troast!'
-    @troasts = user.about_troasts.sort{|a,b| b.date <=>a.date}
+    @troasts = user.about_troasts.map{|a| Troast.find_by_id(a)}.sort{|a,b| b.date <=>a.date}
     if params[:image]
       redirect_to :controller => 'troastee', :action => 'index'
     else

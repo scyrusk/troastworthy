@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/bmp', 'image/gif']
 
   def deleteAboutTroast(troast)
-    about_troasts.delete(troast)
+    about_troasts.delete(troast.id)
+    troast.destroy
     save
   end
 
