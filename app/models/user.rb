@@ -1,5 +1,3 @@
-require 'aws-sdk'
-
 class User < ActiveRecord::Base
   has_many :troasts
   serialize :about_troasts, Array
@@ -11,10 +9,10 @@ class User < ActiveRecord::Base
       :gray => "130x130" },
     :convert_options => { :gray => '-colorspace Gray' },
     :storage => :s3,
+    :bucket => 'tw_bucket',
     :s3_credentials => {
       :access_key_id => ENV['S3_KEY'],
-      :secret_access_key => ENV['S3_SECRET'],
-      :bucket => 'mybucket'
+      :secret_access_key => ENV['S3_SECRET']
     }
 
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/bmp', 'image/gif']
