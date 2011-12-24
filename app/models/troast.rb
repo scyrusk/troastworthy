@@ -4,10 +4,10 @@ class Troast < ActiveRecord::Base
   has_attached_file :image,
     :styles => { :thumb => "60x60" },
     :storage => :s3,
+    :bucket => 'tw_bucket',
     :s3_credentials => {
       :access_key_id => ENV['S3_KEY'],
-      :secret_access_key => ENV['S3_SECRET'],
-      :bucket => 'tw_bucket'
+      :secret_access_key => ENV['S3_SECRET']
     }
 
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png', 'image/bmp', 'image/gif']
