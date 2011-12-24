@@ -1,3 +1,4 @@
+require 'Troast'
 
 class TroasteeController < ApplicationController
   before_filter :authenticate
