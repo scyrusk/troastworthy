@@ -1,3 +1,5 @@
+require 'Troast'
+
 class TroastsController < ApplicationController
   before_filter :authorize, :only => :dynamicCreate
   # GET /troasts

@@ -17,4 +17,9 @@ class Troast < ActiveRecord::Base
       t.destroy
     end
   end
+
+  #heroku compatibility randomness
+  def self.dummyMethod
+    return 1
+  end
 end

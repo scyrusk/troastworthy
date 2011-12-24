@@ -1,4 +1,3 @@
-
 class TroasteeController < ApplicationController
   before_filter :authenticate
 
@@ -14,7 +13,9 @@ class TroasteeController < ApplicationController
       @user = User.find_by_pid(session[:troastee])
       @troaster = User.find_by_uid(session[:troaster])
     end
-    @troasts = @user.about_troasts.sort{|a,b| b.date <=>a.date}
+    #hack to work around rails YAML deserialization bug
+    Troast.dummyMethod
+    @troasts = YAML::load(@user.about_troasts).sort{|a,b| b.date <=>a.date}
   end
 
   def deleteAT
