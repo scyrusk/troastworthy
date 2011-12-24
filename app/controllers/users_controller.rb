@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-    puts "Acces-Key-Id:" + ENV['S3_KEY']
-    puts "Secret-Key:" + ENV['S3_SECRET']
 
     respond_to do |format|
       format.html # index.html.erb
@@ -43,8 +41,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-    puts "Acces-Key-Id:" + ENV['S3_KEY']
-    puts "Secret-Key:" + ENV['S3_SECRET']
+    
     respond_to do |format|
       if @user.save
         @user.uid = Digest::SHA2.hexdigest(@user.name.split('').shuffle.inject{|cum,n| cum + n})
