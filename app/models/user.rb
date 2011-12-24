@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     :storage => :s3,
     :s3_credentials => {
       :access_key_id => ENV['S3_KEY'],
-      :secret_access_key => ENV['S3_SECRET']
+      :secret_access_key => ENV['S3_SECRET'],
       :bucket => 'mybucket'
     }
 
