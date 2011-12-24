@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
+    puts "Acces-Key-Id:" + ENV['S3_KEY']
+    puts "Secret-Key:" + ENV['S3_SECRET']
 
     respond_to do |format|
       format.html # index.html.erb
