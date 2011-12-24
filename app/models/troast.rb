@@ -2,7 +2,7 @@ class Troast < ActiveRecord::Base
   belongs_to :user
 
   has_attached_file :image,
-    :styles => { :thumb => "60x60" }
+    :styles => { :thumb => "60x60" },
     :storage => :s3,
     :bucket => 'mybucket',
     :s3_credentials => {
