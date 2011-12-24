@@ -35,5 +35,6 @@ end
 gem 'cocaine'
 gem 'execjs'
 gem 'therubyracer'
-gem 'aws-s3'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
+gem 'aws-s3', :require => 'aws/s3'
 gem 'aws-sdk'

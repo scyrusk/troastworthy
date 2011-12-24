@@ -6,6 +6,16 @@ GIT
       haml
       rack
 
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: c34a9fb69f9cac531f7865ed0ed6c743c15c9dcc
+  specs:
+    paperclip (2.4.5)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -148,6 +158,7 @@ DEPENDENCIES
   execjs
   hassle!
   jquery-rails
+  paperclip!
   pg
   rails (= 3.1.0)
   sass-rails (~> 3.1.0)
