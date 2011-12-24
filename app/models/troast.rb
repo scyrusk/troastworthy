@@ -7,7 +7,7 @@ class Troast < ActiveRecord::Base
     :s3_credentials => {
       :access_key_id => ENV['S3_KEY'],
       :secret_access_key => ENV['S3_SECRET'],
-      :bucket => 'mybucket1'
+      :bucket => 'tw_bucket'
     }
 
   validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png', 'image/bmp', 'image/gif']
