@@ -25,8 +25,13 @@ class User < ActiveRecord::Base
 
   def self.clearAboutTroasts
     User.all.each do |u|
-      u.about_troasts.clear
-      u.save
+      if u.about_troasts.class == 'String'
+        u.about_troasts = nil
+        u.save
+      else
+        u.about_troasts.clear
+        u.save
+      end
     end
   end
   

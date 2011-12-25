@@ -10,7 +10,7 @@ Troastworthy::Application.routes.draw do
   get "public/index"
   get "public/search"
   post "public/search"
-  get "public/reqDecrypt"
+  get "public/sendATMailsFTW"
 
   resources :troasts
 

@@ -98,6 +98,9 @@ class TroastsController < ApplicationController
     user.about_troasts << troast.id
     user.save
 
+    puts troast.user.name
+    puts Troast.find_by_id(user.about_troasts.last).body
+
     flash[:notice] = 'Created new troast!'
     @troasts = user.about_troasts.map{|a| Troast.find_by_id(a)}.sort{|a,b| b.date <=>a.date}
     if params[:image]

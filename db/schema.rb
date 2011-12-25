@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20111222232027) do
     t.datetime "date"
     t.boolean  "toast"
     t.boolean  "anonymous"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_file_name"

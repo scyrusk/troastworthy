@@ -5,6 +5,7 @@ class CreateTroasts < ActiveRecord::Migration
       t.datetime :date
       t.boolean :toast
       t.boolean :anonymous
+      t.references :user
 
       t.timestamps
     end

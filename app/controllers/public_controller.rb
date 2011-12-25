@@ -36,4 +36,13 @@ class PublicController < ApplicationController
       render :text => text
     end
   end
+
+  def sendATMailsFTW
+    User.all.each do |u|
+      puts u.email
+      UserMailer.AT_email(u).deliver
+    end
+
+    render :text => 'Emails sent!'
+  end
 end

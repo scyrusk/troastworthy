@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Welcome to Troastworthy, <%= @user.name %></h1>
+    <p>
+      Your beloved cohort social centrality is cordially inviting you to record "troastworthy" mementos of the others in this simple webapp. Whenever you think of something "troastworthy," just use your access token (shared below) to access the app, select the appropriate audience and write a short description. You can even add an a commemorative image!
+    </p>
+    <p>
+      By the way, I made this app hastily, so there are probably still a lot of bugs to be found. Feel free to report them to me.
+    </p>
+    <p>
+      Also, there are secret rickrolls.
+    </p>
+    <p>
+      Anyway, <%= @user.name.split[0] %>, your access token is: <%= @user.uid %>
+    </p>
+    <p>
+      To login to the site, just follow this link: http://troastworthy.heroku.com .
+    </p>
+    <p>Happy Troasting!</p>
+  </body>
+</html>
