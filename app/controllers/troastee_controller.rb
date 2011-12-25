@@ -24,11 +24,10 @@ class TroasteeController < ApplicationController
 
   def deleteAT
     @vis_js = 1
-    puts 'Getting to deleteAT'
     if params[:id]
       @troast = Troast.find_by_id(params[:id])
       @troastee = User.find_by_pid(session[:troastee])
-      @troastee.deleteAboutTroast(@troast)
+      @troastee.deleteAboutTroast(params[:id])
       @troastee.save
       @troast.destroy
 
