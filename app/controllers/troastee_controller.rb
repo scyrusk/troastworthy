@@ -27,7 +27,7 @@ class TroasteeController < ApplicationController
     if params[:id]
       @troast = Troast.find_by_id(params[:id])
       @troastee = User.find_by_pid(session[:troastee])
-      @troastee.deleteAboutTroast(params[:id])
+      @troastee.deleteAboutTroast(@troast)
       @troastee.save
       @troast.destroy
 
