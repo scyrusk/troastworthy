@@ -5,8 +5,9 @@
         <%= @user.name.split[0] %>'s Troastfile
       </div>
       <div id="logged_info">
-        <span class="name"><%= 'Logged in as ' + @troaster.name %>.</span>
-        <span class="action"><%= link_to 'Logout', root_url %></span>
+        <p><span class="name"><%= 'Logged in as ' + @troaster.name %>.</span>
+          <span class="action"><%= link_to 'Logout', root_url %></span></p>
+        <p><span class="action"><%= link_to 'Back to Main', '/public/search' %></span></p>
       </div>
     </div>
 
