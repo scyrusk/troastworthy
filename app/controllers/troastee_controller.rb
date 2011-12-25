@@ -31,7 +31,7 @@ class TroasteeController < ApplicationController
       @troastee.save
       @troast.destroy
 
-      @troasts = @troastee.about_troasts.sort{|a,b| b.date<=>a.date}
+      @troasts = @troastee.about_troasts.map{|a| Troast.find_by_id(a)}.sort{|a,b| b.date<=>a.date}
 
       @from_delete = true
       render '/troastee/index.js.erb', :layout => false
