@@ -30,12 +30,12 @@ class PublicController < ApplicationController
     end
   end
 
-  def reqDecrypt
-    unless params[:enc] == nil
-      text = User.unsub(params[:enc],CAESAR_KEY)
-      render :text => text
-    end
-  end
+#  def reqDecrypt
+#    unless params[:enc] == nil
+#      text = User.unsub(params[:enc],CAESAR_KEY)
+#      render :text => text
+#    end
+#  end
 
   def sendATMailsFTW
     User.all.each do |u|
